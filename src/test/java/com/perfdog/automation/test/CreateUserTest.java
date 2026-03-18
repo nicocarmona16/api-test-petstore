@@ -35,4 +35,14 @@ public class CreateUserTest extends TestRunner {
         Assert.assertEquals(response.statusCode(), 200, "El status code no es 200 OK");
         Assert.assertEquals(actualResponse, expectedResponse, "El cuerpo de la respuesta no coincide con lo esperado");
     }
+
+    @Test(testName = "Create user with invalid data")
+    public void testCreateUserWithInvalidData() {
+        String invalidData = "{ Formato de la data invalido }";
+        Response response = RequestBuilder.postRequest(getBaseurl(), "/user", invalidData);
+
+        Assert.assertEquals(response.statusCode(), 400, "El servidor debería rechazar la petición con un status code 400");
+        UserResponseDTO errorResponse = response.as(UserResponseDTO.class);
+        Assert.assertNotNull(errorResponse.getMessage(), "El error debería tener un mensaje");
+    }
 }
