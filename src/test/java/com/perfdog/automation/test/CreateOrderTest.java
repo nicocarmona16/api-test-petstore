@@ -4,14 +4,11 @@ import com.perfdog.automation.config.TestRunner;
 import com.perfdog.automation.model.CategoryDTO;
 import com.perfdog.automation.model.OrderDTO;
 import com.perfdog.automation.model.PetDTO;
-import com.perfdog.automation.model.TagDTO;
 import com.perfdog.automation.request.RequestBuilder;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.Collections;
 
 public class CreateOrderTest extends TestRunner {
 
