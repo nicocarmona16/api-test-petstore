@@ -41,7 +41,7 @@ public class LoginUserTest extends TestRunner {
         Response response = RequestBuilder.getRequest(getBaseurl(), "/user/login", queryParams);
         UserResponseDTO actualResponse = response.as(UserResponseDTO.class);
 
-        Assert.assertEquals(response.statusCode(), 200, "El código de estado HTTP no es 200 OK");
+        Assert.assertEquals(response.statusCode(), 200, "El status code no es 200 OK");
         Assert.assertEquals(actualResponse.getCode(), Integer.valueOf(200), "El código en el body no es 200");
         Assert.assertTrue(actualResponse.getMessage().contains("logged in user session"),
                 "El mensaje no confirma el inicio de sesión. Mensaje actual: " + actualResponse.getMessage());

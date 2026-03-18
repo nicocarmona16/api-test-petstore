@@ -32,7 +32,7 @@ public class CreateUserTest extends TestRunner {
         Response response = RequestBuilder.postRequest(getBaseurl(), "/user", newUser);
         UserResponseDTO actualResponse = response.as(UserResponseDTO.class);
 
-        Assert.assertEquals(response.statusCode(), 200, "El código de estado no es 200 OK");
+        Assert.assertEquals(response.statusCode(), 200, "El status code no es 200 OK");
         Assert.assertEquals(actualResponse, expectedResponse, "El cuerpo de la respuesta no coincide con lo esperado");
     }
 }
