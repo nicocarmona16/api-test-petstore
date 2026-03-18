@@ -12,10 +12,17 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Test class for user login
+ */
 public class LoginUserTest extends TestRunner {
 
     private UserDTO validUser;
 
+    /**
+     * Prepares the test environment
+     * Creates a new user to ensure valid credentials exist
+     */
     @BeforeMethod
     public void setupData() {
         validUser = UserDTO.builder()
@@ -32,6 +39,10 @@ public class LoginUserTest extends TestRunner {
         RequestBuilder.postRequest(getBaseurl(), "/user", validUser);
     }
 
+    /**
+     * Tests the login process (GET /user/login)
+     * Uses valid credentials and verifies the successful session response
+     */
     @Test(testName = "Login with new user")
     public void testLoginUser() {
         Map<String, String> queryParams = new HashMap<>();

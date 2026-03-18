@@ -12,8 +12,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Test class for querying available pets
+ */
 public class GetAvailablePetsTest extends TestRunner {
 
+    /**
+     * Retrieves all pets with the status 'available' (GET /pet/findByStatus)
+     * Validates the HTTP status code and ensures every returned pet has the correct status
+     */
     @Test(testName = "List pets with status available")
     public void testGetAvailablePets() {
         Map<String, String> queryParams = new HashMap<>();

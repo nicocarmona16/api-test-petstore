@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Data Transfer Object representing a pet
+ */
 @Data
 @Builder
 @AllArgsConstructor

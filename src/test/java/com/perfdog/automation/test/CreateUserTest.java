@@ -8,8 +8,15 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+/**
+ * Test class for create user
+ */
 public class CreateUserTest extends TestRunner {
 
+    /**
+     * Tests the successful creation of a new user (Happy Path)
+     * Validates the HTTP status code and the response payload
+     */
     @Test (testName = "Create a user")
     public void testCreateUser() {
         UserDTO newUser = UserDTO.builder()
@@ -36,6 +43,10 @@ public class CreateUserTest extends TestRunner {
         Assert.assertEquals(actualResponse, expectedResponse, "El cuerpo de la respuesta no coincide con lo esperado");
     }
 
+    /**
+     * Tests the creation of a user using an invalid payload (Unhappy Path)
+     * Expects a 400 Bad Request status code from the server
+     */
     @Test(testName = "Create user with invalid data")
     public void testCreateUserWithInvalidData() {
         String invalidData = "{ Formato de la data invalido }";

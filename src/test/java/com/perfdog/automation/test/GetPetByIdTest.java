@@ -12,10 +12,17 @@ import org.testng.annotations.Test;
 
 import java.util.Collections;
 
+/**
+ * Test class for retrieving a specific pet by ID
+ */
 public class GetPetByIdTest extends TestRunner {
 
     private PetDTO expectedPet;
 
+    /**
+     * Prepares the test environment
+     * Creates a new pet in the system to ensure it exists
+     */
     @BeforeMethod
     public void setupData() {
         expectedPet = PetDTO.builder()
@@ -29,6 +36,10 @@ public class GetPetByIdTest extends TestRunner {
         RequestBuilder.postRequest(getBaseurl(), "/pet", expectedPet);
     }
 
+    /**
+     * Tests fetching a pet's details (GET /pet/{petId})
+     * Validates that the returned data exactly matches the created pet
+     */
     @Test(testName = "Get pet information by ID")
     public void testGetPetById() {
         Response response = RequestBuilder.getRequest(getBaseurl(), "/pet/" + expectedPet.getId(), null);

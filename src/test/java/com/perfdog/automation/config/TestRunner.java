@@ -8,6 +8,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Configuration class for tests
+ * Responsible for loading environment properties before the test suite runs
+ */
 @Slf4j
 public class TestRunner {
 
@@ -20,6 +24,10 @@ public class TestRunner {
     @Getter
     private static String apikey;
 
+    /**
+     * Initializes the environment variables
+     * This method runs once before the entire test suite execution
+     */
     @BeforeSuite
     public void setupEnviroment() {
         loadProperties();
@@ -27,6 +35,9 @@ public class TestRunner {
         apikey = PROPERTIES.getProperty("apikey");
     }
 
+    /**
+     * Loads the properties file from the specified path into memory.
+     */
     private void loadProperties() {
         try {
             FileInputStream inputStream = new FileInputStream(PROPERTIES_FILE);

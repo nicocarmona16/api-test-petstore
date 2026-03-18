@@ -12,8 +12,15 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Test class for user logout
+ */
 public class LogoutUserTest extends TestRunner {
 
+    /**
+     * Prepares the test environment
+     * Create a user and log in to ensure an active session before logout
+     */
     @BeforeMethod
     public void setupData() {
         UserDTO logoutUser = UserDTO.builder()
@@ -29,6 +36,10 @@ public class LogoutUserTest extends TestRunner {
         RequestBuilder.getRequest(getBaseurl(), "/user/login", queryParams);
     }
 
+    /**
+     * Tests the logout process (GET /user/logout)
+     * Verifies the successful logout
+     */
     @Test(testName = "Logout user")
     public void testLogoutUser() {
         Response response = RequestBuilder.getRequest(getBaseurl(), "/user/logout", null);

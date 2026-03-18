@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data Transfer Object representing a purchase order for a pet
+ */
 @Data
 @Builder
 @AllArgsConstructor

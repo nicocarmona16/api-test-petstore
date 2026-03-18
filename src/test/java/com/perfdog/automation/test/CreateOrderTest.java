@@ -10,10 +10,17 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+/**
+ * Test class for creating a pet purchase order
+ */
 public class CreateOrderTest extends TestRunner {
 
     private PetDTO orderPet;
 
+    /**
+     * Prepares the test environment
+     * Creates a new pet to ensure it is available for purchase
+     */
     @BeforeMethod
     public void setupData() {
         orderPet = PetDTO.builder()
@@ -25,6 +32,10 @@ public class CreateOrderTest extends TestRunner {
         RequestBuilder.postRequest(getBaseurl(), "/pet", orderPet);
     }
 
+    /**
+     * Tests the creation of a new order (POST /store/order)
+     * Validates the HTTP status code and verifies the order details in the response
+     */
     @Test(testName = "Create order to buy a pet")
     public void testCreateOrder() {
         OrderDTO newOrder = OrderDTO.builder()
