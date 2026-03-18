@@ -13,13 +13,13 @@ public class CreateUserTest extends TestRunner {
     @Test (testName = "Create a user")
     public void testCreateUser() {
         UserDTO newUser = UserDTO.builder()
-                .id(1515151)
-                .username("tester")
-                .firstName("Carlos")
-                .lastName("Automatizador")
-                .email("carlos@perfdog.com")
-                .password("Password123!")
-                .phone("3001234567")
+                .id(252525)
+                .username("login_tester")
+                .firstName("Tester")
+                .lastName("Pruebas")
+                .email("test@test.com")
+                .password("123456")
+                .phone("123456789")
                 .userStatus(1)
                 .build();
 
